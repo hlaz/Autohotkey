@@ -383,7 +383,18 @@ ButtonStart:
 		
 		If(IsImagePlus(ClickX, ClickY, "no_more_bp.png",60,0))
 		{
-			break
+			If(IsImagePlus(ClickX, ClickY, "charge_bp.png",60,0)) 
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 1000
+				
+				If(IsImagePlus(ClickX, ClickY, "re_ok.png",60,0)) 
+				{
+					click_it(ClickX, ClickY)
+					Sleep, 1000
+				}
+			}
+			
 		}
 	}
 }
