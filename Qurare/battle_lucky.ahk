@@ -44,11 +44,12 @@ ButtonStart:
 			Sleep, 500
 			
 			;5bp - enter
-			If(IsImagePlus(ClickX, ClickY, "five_bp.png",60,0))
+			If(IsImagePlus(ClickX, ClickY, "five_bp.png",60,0)||IsImagePlus(ClickX, ClickY, "four_bp.png",60,0))
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 500
 			}
+			
 		}
 		
 		;when the raid is already full, refresh screen
@@ -63,7 +64,7 @@ ButtonStart:
 		}
 		
 		;when the raid is already over, refresh screen
-		If(IsImagePlus(ClickX, ClickY, "finished_raid.png",60,0))
+		If(IsImagePlus(ClickX, ClickY, "finished_lobby.png",60,0))
 		{
 			;5bp - enter
 			If(IsImagePlus(ClickX, ClickY, "touch_screen.png",60,0))
@@ -122,6 +123,30 @@ ButtonStart:
 			Sleep, 500
 		}
 		
+		If(IsImagePlus(ClickX, ClickY, "lucky_main.png",60,0))
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 500
+		}
+		
+		If(IsImagePlus(ClickX, ClickY, "anti_heal.png",60,0))
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 500
+		}
+		
+		If(IsImagePlus(ClickX, ClickY, "cancel_this.png",60,0))
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 500
+			
+			If(IsImagePlus(ClickX, ClickY, "cancel_skill.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 500
+			}
+		}
+		
 		;end battle - emote
 		If(IsImagePlus(ClickX, ClickY, "done_battle",60,0) || IsImagePlus(ClickX, ClickY, "thanks_msg_1",60,0) || IsImagePlus(ClickX, ClickY, "thanks_msg_2",60,0) || IsImagePlus(ClickX, ClickY, "thanks_msg_3",60,0) || IsImagePlus(ClickX, ClickY, "thanks_msg_4",60,0) || IsImagePlus(ClickX, ClickY, "thanks_msg_5",60,0))
 		{
@@ -162,13 +187,49 @@ ButtonStart:
 			click_it(ClickX, ClickY)
 			Sleep, 1000
 			
+			
+			If(IsImagePlus(ClickX, ClickY, "special_dungeon.png",60,0)) 
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 500
+				
+				;go to lobby
+				If(IsImagePlus(ClickX, ClickY, "opened_special_dungeon.png",60,0)) 
+				{
+					click_it(ClickX, ClickY)
+					Sleep, 500
+					
+					If(IsImagePlus(ClickX, ClickY, "run_dungeon.png",60,0)) 
+					{
+						click_it(ClickX, ClickY)
+						Sleep, 500
+					}
+				}
+			}
+			
 			;go to raid menu
+			If(IsImagePlus(ClickX, ClickY, "summon_raid.png",60,0)) 
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 2000
+				
+				;go to lobby
+				If(IsImagePlus(ClickX, ClickY, "lobby.png",60,0)) 
+				{
+					click_it(ClickX, ClickY)
+					Sleep, 2000
+				}
+			}
+		}
+		
+		If(IsImagePlus(ClickX, ClickY, "home_main.png",60,0)) 
+		{
 			If(IsImagePlus(ClickX, ClickY, "summon_raid.png",60,0)) 
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 1000
 				
-				;go to lobby
+				;lobby
 				If(IsImagePlus(ClickX, ClickY, "lobby.png",60,0)) 
 				{
 					click_it(ClickX, ClickY)
@@ -204,7 +265,126 @@ ButtonStart:
 			}
 		}
 		
+		If(IsImagePlus(ClickX, ClickY, "defeated.png",60,0)) 
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+			
+			If(IsImagePlus(ClickX, ClickY, "touch_screen.png",60,0)) 
+			{
+				ControlClick, x390 y279, BlueStacks App Player,,left
+				Sleep, 500
+				
+				If(IsImagePlus(ClickX, ClickY, "summon_raid.png",60,0)) 
+				{
+					click_it(ClickX, ClickY)
+					Sleep, 300
+					
+					If(IsImagePlus(ClickX, ClickY, "lobby.png",60,0)) 
+					{
+						click_it(ClickX, ClickY)
+						Sleep, 500
+					}
+				}
+			}
+		}
 		
+		If(IsImagePlus(ClickX, ClickY, "re_ok.png",60,0)) 
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+		}
+		
+		If(IsImagePlus(ClickX, ClickY, "skip.png",60,0)) 
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+		}
+		
+		If(IsImagePlus(ClickX, ClickY, "finished_dungeon.png",60,0)) 
+		{
+			
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+		}
+		
+		
+		If(IsImagePlus(ClickX, ClickY, "auto_dungeon.png",60,0))
+		{
+			
+			ControlClick, x632 y75, BlueStacks App Player,,left
+			Sleep, 10000
+		}
+		
+		
+		;max card while running special_dungeon
+		If(IsImagePlus(ClickX, ClickY, "max_card.png",60,0))
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+			
+			;card
+			If(IsImagePlus(ClickX, ClickY, "card_menu.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 1000
+				
+				;sell cards
+				If(IsImagePlus(ClickX, ClickY, "sell_card.png",60,0))
+				{
+					click_it(ClickX, ClickY)
+					Sleep, 1000
+					
+					;select all cards
+					If(IsImagePlus(ClickX, ClickY, "auto_select.png",60,0))
+					{
+						click_it(ClickX, ClickY)
+						Sleep, 1000
+						
+						;click sell
+						If(IsImagePlus(ClickX, ClickY, "sell_card_confirm.png",60,0))
+						{
+							click_it(ClickX, ClickY)
+							Sleep, 1000
+							
+							;click menu
+							If(IsImagePlus(ClickX, ClickY, "main_menu.png",60,0))
+							{
+								click_it(ClickX, ClickY)
+								Sleep, 1000
+								
+								;adventure
+								If(IsImagePlus(ClickX, ClickY, "adventure.png",60,0))
+								{
+									click_it(ClickX, ClickY)
+									Sleep, 1000
+									
+									;current dungeon
+									If(IsImagePlus(ClickX, ClickY, "current_dungeon.png",60,0))
+									{
+										click_it(ClickX, ClickY)
+										Sleep, 1000
+										
+										;touch screen
+										If(IsImagePlus(ClickX, ClickY, "touch_screen.png",60,0))
+										{
+											click_it(ClickX, ClickY)
+											Sleep, 1000						
+										}									
+									} ;current dungeon
+								}									
+							}
+						}						
+					}					
+				}				
+			}
+		}
+		
+		
+		If(IsImagePlus(ClickX, ClickY, "no_more_bp.png",60,0))
+		{
+			break
+		}
 	}
 }
 return
