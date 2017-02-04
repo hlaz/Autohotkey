@@ -8,7 +8,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #include Gdip_ImageSearch.ahk
 
 
-Gui, Add, Text, x45 y5 w110 h20, Raid Farming
+Gui, Add, Text, x45 y5 w110 h20, GBF Raids
 Gui, Add, Text, x60 y25 w50 h20 vA, Ready
 Gui, Add, Text, x60 y45 w50 h20 vB, 0 runs
 Gui, Add, Text, x55 y65 w100 h40 vC, 0 potions
@@ -165,6 +165,20 @@ battle() {
 			randomize_click(FoundX, FoundY)
 		}
 	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		random_delay_battle()
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		if (ErrorLevel = 0)
+		{
+			random_delay()
+			randomize_click(FoundX, FoundY)
+		}
+	}
 }
 
 back_to_lobby() {
@@ -232,12 +246,12 @@ pick_up_roots() {
 
 
 error_condition() {
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\wrong_id.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\battle_error.png
 	if (ErrorLevel = 0)
 	{
 		random_delay()
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\wrong_id_ok.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\network_ok.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
@@ -250,15 +264,14 @@ error_condition() {
 			randomize_click(FoundX, FoundY)
 			random_delay_wait()
 		}
-		
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\end_battle.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\raid_error.png
 	if (ErrorLevel = 0)
 	{
 		random_delay()
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\end_ok.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\network_ok.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
@@ -271,15 +284,21 @@ error_condition() {
 			randomize_click(FoundX, FoundY)
 			random_delay_wait()
 		}
-		
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\full_pending.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\network_error.png
 	if (ErrorLevel = 0)
 	{
 		random_delay()
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\wrong_id_ok.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\network_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay_wait()
+		}
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
@@ -300,7 +319,7 @@ random_delay(){
 }
 
 random_delay_wait(){
-	random, wait_time, 4000, 6000
+	random, wait_time, 3000, 4000
 	sleep,%wait_time%
 }
 

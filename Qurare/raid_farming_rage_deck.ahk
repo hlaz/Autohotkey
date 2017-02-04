@@ -52,6 +52,12 @@ ButtonStart:
 				Sleep, 500
 			}
 			
+			If(IsImagePlus(ClickX, ClickY, "touch_it.png",60,0)) 
+		{
+			click_it(ClickX, ClickY)
+			Sleep, 1000
+		}
+			
 		}
 		
 		;when the raid is already full, refresh screen
@@ -83,6 +89,8 @@ ButtonStart:
 		}
 		
 		
+		
+		
 		;entered dungeon
 		
 		;emote while waiting - works
@@ -112,33 +120,54 @@ ButtonStart:
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 200
-			}
+			} ;웨딩델핀
 			
 
 			If(IsImagePlus(ClickX, ClickY, "rage_2.png",60,0))
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 200
-			}
+			} ;수영복
 
 			
+			/*
 			If(IsImagePlus(ClickX, ClickY, "rage_3.png",60,0))
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 200
-			}
+			} ;오미우
 			
 			If(IsImagePlus(ClickX, ClickY, "rage_4.png",60,0))
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 200
-			}
+			} ;화성
+			
 			
 			If(IsImagePlus(ClickX, ClickY, "rage_5.png",60,0))
 			{
 				click_it(ClickX, ClickY)
 				Sleep, 200
-			}
+			} ;머큐리
+			*/
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_6.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			} ;메이드 미우
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_7.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			} ;별가사리
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_8.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			} ;포드 흡혈
 			
 		}
 		
@@ -276,7 +305,7 @@ ButtonStart:
 				Sleep, 500
 			}
 
-			
+			/*
 			If(IsImagePlus(ClickX, ClickY, "rage_3.png",60,0))
 			{
 				click_it(ClickX, ClickY)
@@ -294,6 +323,25 @@ ButtonStart:
 				click_it(ClickX, ClickY)
 				Sleep, 500
 			}
+			*/
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_6.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			}
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_7.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			}
+			
+			If(IsImagePlus(ClickX, ClickY, "rage_8.png",60,0))
+			{
+				click_it(ClickX, ClickY)
+				Sleep, 200
+			} ;포드 흡혈
 		
 		If(IsImagePlus(ClickX, ClickY, "defeated.png",60,0)) 
 		{
@@ -441,7 +489,7 @@ ButtonStart:
 			}
 		}
 		
-		
+		/*
 		If(IsImagePlus(ClickX, ClickY, "no_more_bp.png",60,0))
 		{
 			If(IsImagePlus(ClickX, ClickY, "charge_bp.png",60,0)) 
@@ -460,6 +508,8 @@ ButtonStart:
 			}
 			
 		}
+		
+		*/
 	}
 }
 return
