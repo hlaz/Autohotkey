@@ -36,10 +36,10 @@ ButtonStart:
 	
 	Loop
 	{
-		quest_to_main()
+		start_event()
 		select_summon()
-		battle_yodal()
-		
+		battle()
+		event_handler()
 			
 		
 	}
@@ -59,32 +59,11 @@ Start_macro := false
 ExitApp
 return
 
-quest_to_main(){
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_chrome.png
+start_event(){
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip.png
 	if (ErrorLevel = 0)
 	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_red.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_msg.png
-	if (ErrorLevel = 0)
-	{
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_ok.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip_ok.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click_summon(FoundX, FoundY)
@@ -92,8 +71,19 @@ quest_to_main(){
 		}
 	}
 	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\go_event.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
 	
-	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
 }
 
 
@@ -111,7 +101,11 @@ select_summon(){
 		}
 	}
 	
-	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_ok.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok.png
 	if (ErrorLevel = 0)
@@ -122,68 +116,113 @@ select_summon(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip.png
 	if (ErrorLevel = 0)
 	{
-		random_delay()
+		
 		randomize_click(FoundX, FoundY)
+		random_delay()
 	}
 }
 
 
-battle_yodal() {
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ougi_100.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-	}
-	else if (ErrorLevel = 1)
-	{
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
-		if (ErrorLevel = 0)
-		{
-			random_delay()
-			randomize_click(FoundX, FoundY)
-		}
-		random_endbattle()
-	}
+battle() {
 	
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\yodal_3rd.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
 		random_delay()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\yodal_3rd_used.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\auto_battle.png
 	if (ErrorLevel = 0)
 	{
 		
 		randomize_click(FoundX, FoundY)
-		
 		random_delay()
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
-		if (ErrorLevel = 0)
-		{
-			randomize_click(FoundX, FoundY)
-			random_delay()
-		}
 	}
+	
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
 		
-		random_next_delay()
-		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\go_event.png
 		if (ErrorLevel = 0)
 		{
-			random_delay()
 			randomize_click(FoundX, FoundY)
+			random_delay()
 		}
+		
 	}
 	
+}
+
+event_handler() {
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\new_event.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\event_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+		
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\new_event_2.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\new_event_2_close.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+		
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+		
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\root.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		
+		
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\root_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
 }
 
 
