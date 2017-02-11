@@ -33,11 +33,12 @@ ButtonStart:
 	num_clear := 0
 	num_pots := 0
 	
-	WinActivate,Granblue Fantasy - Chrome
+	WinActivate,Granblue Fantasy - Google Chrome
 	
 	Loop
 	{
-		start_halo()
+		WinActivate,Granblue Fantasy - Google Chrome
+		start_halo_fav()
 		select_summon()
 		battle()
 		event_handler()
@@ -60,6 +61,16 @@ Start_macro := false
 ExitApp
 return
 
+
+start_halo_fav() {
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\halo_ap.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+}
 
 start_halo(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\halo.png
@@ -87,6 +98,7 @@ select_summon(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_fav.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
 		randomize_click(FoundX, FoundY)
 		random_delay()
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_summon.png
@@ -100,19 +112,22 @@ select_summon(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_ok.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
 		randomize_click(FoundX, FoundY)
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok.png
 	if (ErrorLevel = 0)
 	{
+		msgbox, 5
+		random_delay()
 		randomize_click(FoundX, FoundY)
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip.png
 	if (ErrorLevel = 0)
 	{
-		
+		msgbox, 6
 		randomize_click(FoundX, FoundY)
 		random_delay()
 	}
@@ -125,14 +140,14 @@ battle() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
 	if (ErrorLevel = 0)
 	{
-		randomize_click(FoundX, FoundY)
 		random_delay()
+		randomize_click(FoundX, FoundY)
+		
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\auto_battle_2.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\auto_battle.png
 	if (ErrorLevel = 0)
 	{
-		
 		randomize_click(FoundX, FoundY)
 		random_delay_wait()
 	}
@@ -140,7 +155,7 @@ battle() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next.png
 	if (ErrorLevel = 0)
 	{
-		
+		random_delay_wait()
 		randomize_click(FoundX, FoundY)
 		random_delay_wait()
 	}
@@ -154,11 +169,13 @@ event_handler() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
 		randomize_click(FoundX, FoundY)
 		
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_ok.png
 		if (ErrorLevel = 0)
 		{
+			random_delay()
 			randomize_click(FoundX, FoundY)
 			random_delay()
 			
@@ -169,9 +186,10 @@ event_handler() {
 		
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\halo_quest.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_quest.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
 		randomize_click(FoundX, FoundY)
 		random_delay()
 	}
@@ -186,11 +204,68 @@ event_handler() {
 			random_delay()
 		}
 	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skills.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skills_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\no_ap.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		Random,px, 223,267
+		Random,py, 478,485
+		mouseclick, left, px,py
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\20_pot.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\use_pot.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\use_item.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\item_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\rank_up.png
+	if (ErrorLevel = 0)
+	{
+		random_next_delay()
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\rank_ok.png
+		if (ErrorLevel = 0)
+		{
+			random_delay()
+			randomize_click(FoundX, FoundY)
+		}
+	}
+	
 }
 
 
 random_delay(){
-	random, wait_time, 400, 1500
+	random, wait_time, 500, 2000
 	sleep,%wait_time%
 
 }
