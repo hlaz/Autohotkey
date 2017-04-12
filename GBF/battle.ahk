@@ -39,6 +39,8 @@ Loop
 	}
 	
 	;3번창 레디
+	
+	
 	Loop
 	{
 		CoordMode, pixel, screen
@@ -52,6 +54,7 @@ Loop
 			break
 		}
 	}
+	
 	
 	Loop
 	{

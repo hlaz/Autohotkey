@@ -39,6 +39,12 @@ Loop
 		
 	}
 	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img_sasin\bot_detection.png
+	if (ErrorLevel = 0)
+	{
+		break
+	}
+	
 }
 return
 
@@ -91,6 +97,19 @@ back_to_lobby() {
 			random_delay()
 		}
 	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img_sasin\error_msg.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img_sasin\error_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	
 }
 
 start_battle() {
