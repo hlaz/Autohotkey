@@ -1,10 +1,8 @@
 # Scripts
 
-I'm using AutoHotKey to create mobile games bot scripts to automate farming, leveling, etc.
+just scripts to automate farming, leveling, etc. on mobile games
 
-Basic functions from AutoHotkey allows me to automate stuffs when the window is in the foreground or background, but it's not working when the window is minimized or hidden by other windows. (ControlSend works, but I haven't touched it yet, https://www.autohotkey.com/docs/commands/ControlSend.htm)
-
-In order to make everything fully-automated even when the window is in background or minimized, I used gdi+ library for image search on background.
+everything is fully-automated even when the window is in background or minimized
 
 I'm planning to use Android Debug Bridge (adb) along with AHK as well.
 
