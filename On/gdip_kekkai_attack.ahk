@@ -9,36 +9,65 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 Loop
 {
-	Loop
+	
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_10.png",60,0))
 	{
-		CoordMode, pixel, screen
-		coordmode, mouse, screen
-		If(IsImagePlus(ClickX, ClickY, "boss_mark2.png",60,0))
-		{
-			randomize_click(ClickX, ClickY)
-			random_delay_boss()
-			break
-		}
+		battle_click(ClickX, ClickY)
+		random_delay()
 	}
 	
-	Loop
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_3.png",60,0))
 	{
-		CoordMode, pixel, screen
-		coordmode, mouse, screen
-		If(IsImagePlus(ClickX, ClickY, "move_back.png",60,0))
-		{
-			random_delay_long()
-			randomize_click(ClickX, ClickY)
-			break
-		}
+		battle_click(ClickX, ClickY)
+		random_delay()
 	}
 	
-	;진입확인 - 오른쪽으로 이동 - 끝까지 이동
 	
-	;이제 선택 & 전투 시작 (다루마 먼저 - 없으면 골드 - 없으면 경치, 보스 등장하면 무조건 보스)
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_4.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
 	
-	;보스 잡고나서, 보상있으면 클릭 - 보상화면 한번 클릭 - 10초 대기 - 보물상자 있나 확인, 잇으면 클릭, 없으면 처음으로
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_5.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
 	
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_6.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_7.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_8.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_start_9.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "no_ticket.png",60,0))
+	{
+		Send, {F7}
+		Send, {F8}
+		
+	}
+
 	
 	
 }
@@ -46,7 +75,7 @@ return
 
 
 
-F6::
+F8::
 Start_macro := false
 ExitApp
 return
@@ -59,32 +88,16 @@ random_delay(){
 
 }
 
-
-random_delay_boss(){
-	random, wait_time, 60000, 70000
-	sleep,%wait_time%
-
-}
-
 random_delay_wait(){
-	random, wait_time, 2000, 3000
+	random, wait_time, 10000, 11000
 	sleep,%wait_time%
 
 }
 
 random_delay_long(){
-	random, wait_time, 8000, 9000
+	random, wait_time, 20000, 25000
 	sleep,%wait_time%
 
-}
-
-randomize_move(FoundX, FoundY)
-{
-	random,xr,1,15
-	random,yr,1,15
-	FoundX:=FoundX+xr
-	FoundY:=FoundY+yr
-	mousemove, left, %FoundX%, %FoundY%
 }
 
 randomize_click(x, y)
@@ -107,6 +120,32 @@ reward_click(x, y)
 	
 	random,xr,1,35
 	random,yr,1,30
+	NewX:=NewX+xr
+	NewY:=NewY+yr
+	
+	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
+}
+
+start_click(x, y)
+{
+	NewX := x + 5
+	NewY := y + 24
+	
+	random,xr,31,40
+	random,yr,1,15
+	NewX:=NewX+xr
+	NewY:=NewY+yr
+	
+	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
+}
+
+ticket_click(x, y)
+{
+	NewX := x + 5
+	NewY := y + 24
+	
+	random,xr,1,5
+	random,yr,50,78
 	NewX:=NewX+xr
 	NewY:=NewY+yr
 	

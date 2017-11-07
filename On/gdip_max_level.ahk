@@ -9,50 +9,72 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 Loop
 {
-	If(IsImagePlus(ClickX, ClickY, "victory.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "lvl20.png",60,0))
 	{
-		random_delay()
-		reward_click(ClickX, ClickY)
-		random_delay()
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "lose.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "lvl20_2.png",60,0))
 	{
-		reward_click(ClickX, ClickY)
-		random_delay()
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "reward.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "lvl25.png",60,0))
 	{
-		reward_click(ClickX, ClickY)
-		random_delay()
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
 	}
-
-	If(IsImagePlus(ClickX, ClickY, "reward_open.png",60,0))
+	
+	If(IsImagePlus(ClickX, ClickY, "lvl25_2.png",60,0))
 	{
-		reward_click(ClickX, ClickY)
-		random_delay()
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
 	}
 	
-
-	
-	
-	
-	
-	;진입확인 - 오른쪽으로 이동 - 끝까지 이동
-	
-	;이제 선택 & 전투 시작 (다루마 먼저 - 없으면 골드 - 없으면 경치, 보스 등장하면 무조건 보스)
-	
-	;보스 잡고나서, 보상있으면 클릭 - 보상화면 한번 클릭 - 10초 대기 - 보물상자 있나 확인, 잇으면 클릭, 없으면 처음으로
-	
-	
+	If(IsImagePlus(ClickX, ClickY, "lvl30.png",60,0))
+	{
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
+	}
 	
 }
 return
 
 
 
-F8::
+F5::
 Start_macro := false
 ExitApp
 return

@@ -7,77 +7,79 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #include Gdip.ahk
 #include Gdip_ImageSearch.ahk
 
-
-
-
 Loop
 {
 	
-	If(IsImagePlus(ClickX, ClickY, "ch_23.png",60,0))
+
+	If(IsImagePlus(ClickX, ClickY, "ticket_empty.png",60,0))
 	{
+		random_delay()
+		randomize_click(ClickX, ClickY)
 		random_delay_wait()
-		randomize_click(ClickX, ClickY)
-		random_delay()
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "enter.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "ticket_empty_2.png",60,0))
 	{
 		random_delay()
 		randomize_click(ClickX, ClickY)
+		random_delay_wait()
+	}
+	
+	
+	If(IsImagePlus(ClickX, ClickY, "start_fight_3.png",60,0))
+	{
+		start_click(ClickX, ClickY)
 		random_delay()
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "click_yes.png",60,0))
+	
+	
+	If(IsImagePlus(ClickX, ClickY, "victory.png",60,0))
 	{
-		random_delay()
-		randomize_click(ClickX, ClickY)
+		reward_click(ClickX, ClickY)
 		random_delay()
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "reward_2.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "lose.png",60,0))
 	{
+		reward_click(ClickX, ClickY)
 		random_delay()
-		randomize_click(ClickX, ClickY)
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "reward.png",60,0))
+	{
+		reward_click(ClickX, ClickY)
 		random_delay()
 	}
 
+	If(IsImagePlus(ClickX, ClickY, "reward_open_2.png",60,0))
+	{
+		reward_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_refresh.png",60,0))
+	{
+		
+		random_delay_long()
+		battle_click(ClickX, ClickY)
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "ticket_refresh_2.png",60,0))
+	{
+		battle_click(ClickX, ClickY)
+		random_delay()
+	}
+	
+	
+	If(IsImagePlus(ClickX, ClickY, "click_no_2.png",60,0))
+	{
+		random_delay()
+		randomize_click(ClickX, ClickY)
+	}
+	
+	
 
-	If(IsImagePlus(ClickX, ClickY, "click_no.png",60,0))
-	{
-		random_delay()
-		randomize_click(ClickX, ClickY)
-		random_delay()
-	}
-	
-	If(IsImagePlus(ClickX, ClickY, "ch_msg.png",60,0))
-	{
-		random_delay_long()
-		randomize_click(ClickX, ClickY)
-	}
-	
-	If(IsImagePlus(ClickX, ClickY, "test1.png",60,0))
-	{
-		random_delay_long()
-		farming_click(ClickX, ClickY)
-	}
-	
-	If(IsImagePlus(ClickX, ClickY, "map_reward.png",60,0))
-	{
-		randomize_click(ClickX, ClickY)
-		random_delay()
-	}
-	
-	If(IsImagePlus(ClickX, ClickY, "no_stamina.png",60,0))
-	{
-		stamina_delay()
-		If(IsImagePlus(ClickX, ClickY, "click_close.png",60,0))
-		{
-			battle_click(ClickX, ClickY)
-			random_delay()
-		}
-		random_delay()
-	}
-	
 	
 	
 }
@@ -90,48 +92,25 @@ Start_macro := false
 ExitApp
 return
 
-
 	
 
 random_delay(){
-	random, wait_time, 1000, 2000
+	random, wait_time, 2000, 3000
 	sleep,%wait_time%
 
 }
 
 random_delay_wait(){
-	random, wait_time, 3000, 4000
-	sleep,%wait_time%
-}
-
-random_delay_battle(){
-	random, wait_time, 1500, 3000
+	random, wait_time, 5000, 6000
 	sleep,%wait_time%
 
 }
-
-stamina_delay(){
-	random, wait_time, 900000, 1050000
-	sleep,%wait_time%
-
-}
-
 
 random_delay_long(){
-	random, wait_time, 9000, 10000
+	random, wait_time, 30000, 35000
 	sleep,%wait_time%
 
 }
-
-randomize_move(FoundX, FoundY)
-{
-	random,xr,1,15
-	random,yr,1,15
-	FoundX:=FoundX+xr
-	FoundY:=FoundY+yr
-	mousemove, left, %FoundX%, %FoundY%
-}
-
 
 randomize_click(x, y)
 {
@@ -139,6 +118,32 @@ randomize_click(x, y)
 	NewY := y + 24
 	
 	random,xr,1,5
+	random,yr,1,5
+	NewX:=NewX+xr
+	NewY:=NewY+yr
+	
+	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
+}
+
+reward_click(x, y)
+{
+	NewX := x + 5
+	NewY := y + 24
+	
+	random,xr,1,35
+	random,yr,1,30
+	NewX:=NewX+xr
+	NewY:=NewY+yr
+	
+	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
+}
+
+start_click(x, y)
+{
+	NewX := x + 5
+	NewY := y + 24
+	
+	random,xr,31,40
 	random,yr,1,15
 	NewX:=NewX+xr
 	NewY:=NewY+yr
@@ -146,28 +151,18 @@ randomize_click(x, y)
 	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
 }
 
-
-farming_click(x, y)
+ticket_click(x, y)
 {
-	NewX := x + 65
+	NewX := x + 5
+	NewY := y + 24
 	
-	random,xr,1,15
-	random,yr,1,5
+	random,xr,1,5
+	random,yr,50,78
 	NewX:=NewX+xr
-	NewY:=y+yr
+	NewY:=NewY+yr
 	
 	ControlClick, x%NewX% y%NewY%, changrygsiphone - TightVNC Viewer
 }
-
-map_click(FoundX, FoundY)
-{
-	random,xr,1,10
-	random,yr,20,40
-	FoundX:=FoundX+xr
-	FoundY:=FoundY+yr
-	mouseclick, left, %FoundX%, %FoundY%
-}
-
 
 battle_click(x, y)
 {
