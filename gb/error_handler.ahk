@@ -43,17 +43,17 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\not_ready.png
 		if (ErrorLevel = 0)
 		{
-			Random,px, 105,135
-			Random,py, 92,96
+			Random,px, 273,300
+			Random,py, 90,93
 			mouseclick, left, px,py
 
 
-			Random,px, 455,468
-			Random,py, 92,96
+			Random,px, 460,468
+			Random,py, 90,93
 			mouseclick, left, px,py
 
-			Random,px, 800,830
-			Random,py, 92,96
+			Random,px, 1049,1070
+			Random,py, 90,93
 			mouseclick, left, px,py
 		}
 	}
@@ -65,17 +65,61 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ready_big.png
 		if (ErrorLevel = 0)
 		{
-			Random,px, 105,135
-			Random,py, 92,96
+			Random,px, 273,300
+			Random,py, 90,93
 			mouseclick, left, px,py
 
 
-			Random,px, 455,468
-			Random,py, 92,96
+			Random,px, 460,468
+			Random,py, 90,93
 			mouseclick, left, px,py
 
-			Random,px, 800,830
-			Random,py, 92,96
+			Random,px, 1049,1070
+			Random,py, 90,93
+			mouseclick, left, px,py
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
+		if (ErrorLevel = 0)
+		{
+			Random,px, 273,300
+			Random,py, 90,93
+			mouseclick, left, px,py
+
+
+			Random,px, 460,468
+			Random,py, 90,93
+			mouseclick, left, px,py
+
+			Random,px, 1049,1070
+			Random,py, 90,93
+			mouseclick, left, px,py
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\loading.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\loading.png
+		if (ErrorLevel = 0)
+		{
+			Random,px, 290,305
+			Random,py, 950,960
+			mouseclick, left, px,py
+
+
+			Random,px, 676,694
+			Random,py, 950,960
+			mouseclick, left, px,py
+
+			Random,px, 1064,1085
+			Random,py, 950,960
 			mouseclick, left, px,py
 		}
 	}
@@ -101,7 +145,7 @@ return
 f4::
 pause
 
-f3::ExitApp
+f7::ExitApp
 
 randomize_click(FoundX, FoundY)
 {
