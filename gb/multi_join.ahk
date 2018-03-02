@@ -61,17 +61,22 @@ copy_number(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\enter_id_selected.png
 	if (ErrorLevel = 0)
 	{
+		
+		WinActivate,Granblue Raid Finder
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\raid_number.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
+			WinActivate,Granblue Fantasy - Chrome
 		}
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\search_bar.png
 	if (ErrorLevel = 0)
 	{
-		random_delay_battle()
+		
+		random_delay_getin()
+		
 		randomize_click(FoundX, FoundY)
 		Send, ^v
 		
@@ -152,7 +157,7 @@ battle() {
 		randomize_click(FoundX, FoundY)
 		
 		random_delay_battle()
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			random_delay()
@@ -166,7 +171,7 @@ battle() {
 		randomize_click(FoundX, FoundY)
 		
 		random_delay_battle()
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			random_delay()
@@ -199,6 +204,12 @@ random_delay(){
 random_delay_wait(){
 	random, wait_time, 3000, 4000
 	sleep,%wait_time%
+}
+
+random_delay_getin(){
+	random, wait_time, 3000, 3500
+	sleep,%wait_time%
+
 }
 
 random_delay_battle(){

@@ -61,7 +61,7 @@ return
 
 
 start_halo(){
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\event_start.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_20.png
 	if (ErrorLevel = 0)
 	{
 		random_delay()
@@ -113,6 +113,7 @@ event_handler() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
 		randomize_click(FoundX, FoundY)
 		
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_ok.png
@@ -144,6 +145,22 @@ event_handler() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\event_item_ok.png
 	if (ErrorLevel = 0)
 	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+		
+	}
+	
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\lb_up.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\lb_up_2.png
+	if (ErrorLevel = 0)
+	{
 		randomize_click(FoundX, FoundY)
 		random_delay()
 	}
@@ -151,8 +168,8 @@ event_handler() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\event_home.png
 	if (ErrorLevel = 0)
 	{
-		randomize_click(FoundX, FoundY)
 		random_delay()
+		randomize_click(FoundX, FoundY)
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\friend_request.png
@@ -161,15 +178,46 @@ event_handler() {
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_cancel.png
 		if (ErrorLevel = 0)
 		{
+			random_delay()
 			randomize_click(FoundX, FoundY)
 			random_delay()
 		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\trophy.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\trophy_close.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\extend_up.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\verify_detect.png
+	if (ErrorLevel = 0)
+	{
+		
+		Send, {F4}
+		Send, {F8}
+		random_delay_battle()
+		
+		
+		
 	}
 }
 
 
 random_delay(){
-	random, wait_time, 400, 1500
+	random, wait_time, 1200, 1800
 	sleep,%wait_time%
 
 }

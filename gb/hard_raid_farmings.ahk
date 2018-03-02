@@ -8,7 +8,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #include Gdip_ImageSearch.ahk
 
 
-Gui, Add, Text, x45 y5 w110 h20, solo hards
+Gui, Add, Text, x45 y5 w110 h20, Raid Farming
 Gui, Add, Text, x60 y25 w50 h20 vA, Ready
 Gui, Add, Text, x60 y45 w50 h20 vB, 0 runs
 Gui, Add, Text, x55 y65 w100 h40 vC, 0 potions
@@ -32,12 +32,11 @@ ButtonStart:
 	num_clear := 0
 	num_pots := 0
 	
-	WinActivate,Granblue Fantasy - Google Chrome
+	WinActivate,Granblue Fantasy - Chrome
 	
 	Loop
 	{
-		WinActivate,Granblue Fantasy - Google Chrome
-		quest_to_main()
+		select_map()
 		select_summon()
 		battle_yodal()
 		
@@ -61,98 +60,126 @@ ExitApp
 return
 
 quest_to_main(){
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_chrome.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest.png
 	if (ErrorLevel = 0)
 	{
 		random_delay()
 		randomize_click(FoundX, FoundY)
-		random_delay_battle()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_world.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
+}
+
+select_map_vira(){
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\vira.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\hard_raids.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\chevalier.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+		
+		
+		sleep, 10000
+	}
+	
+}
+
+select_map() {
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_chrome.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay_wait()
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_red.png
 	if (ErrorLevel = 0)
 	{
-		random_delay()
 		randomize_click(FoundX, FoundY)
-		random_delay_battle()
+		random_delay_wait()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_15.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\showdown.png
 	if (ErrorLevel = 0)
 	{
-		random_delay()
 		randomize_click(FoundX, FoundY)
-		random_delay_battle()
+		random_delay()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_msg.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\hard_raid.png
 	if (ErrorLevel = 0)
 	{
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_ok.png
-		if (ErrorLevel = 0)
-		{
-			randomize_click_summon(FoundX, FoundY)
-			random_delay_wait()
-		}
+		randomize_click(FoundX, FoundY)
+		random_delay()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\omega.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
 	if (ErrorLevel = 0)
 	{
-		Msgbox, 하드레이드 끝!
-		
+		randomize_click(FoundX, FoundY)
+		random_delay()
 	}
-	
-	
 	
 }
-
 
 select_summon(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_fav.png
 	if (ErrorLevel = 0)
 	{
-		random_delay()
 		randomize_click(FoundX, FoundY)
 		random_delay()
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_summon.png
 		if (ErrorLevel = 0)
 		{
+			random_delay()
 			randomize_click_summon(FoundX, FoundY)
 			random_delay_battle()
 		}
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_ok.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
+	
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok.png
 	if (ErrorLevel = 0)
 	{
-		msgbox, 5
-		random_delay()
 		randomize_click(FoundX, FoundY)
 	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip.png
 	if (ErrorLevel = 0)
 	{
-		msgbox, 6
 		randomize_click(FoundX, FoundY)
-		random_delay()
+		random_delay_wait()
 	}
 }
-
 
 battle_yodal() {
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ougi_100.png
 	if (ErrorLevel = 0)
 	{
+		;Msgbox, 오의100퍼
+		random_delay()
 		randomize_click(FoundX, FoundY)
 	}
 	else if (ErrorLevel = 1)
@@ -160,10 +187,11 @@ battle_yodal() {
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
 		if (ErrorLevel = 0)
 		{
-			random_delay()
 			randomize_click(FoundX, FoundY)
+			random, wait_bit, 9000, 11000
+			sleep,%wait_bit%
 		}
-		random_endbattle()
+		
 	}
 	
 	
@@ -177,72 +205,40 @@ battle_yodal() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\yodal_3rd_used.png
 	if (ErrorLevel = 0)
 	{
-		
 		randomize_click(FoundX, FoundY)
-		
 		random_delay()
+		
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
 		if (ErrorLevel = 0)
 		{
-			randomize_click(FoundX, FoundY)
 			random_delay()
+			randomize_click(FoundX, FoundY)
 		}
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next_2.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
 		
-		random_next_delay()
+		sleep, 6000
 		
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
 		if (ErrorLevel = 0)
 		{
-			random_delay()
 			randomize_click(FoundX, FoundY)
-		}
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
-	if (ErrorLevel = 0)
-	{
-		random_next_delay()
-		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
-		if (ErrorLevel = 0)
-		{
-			random_delay()
-			randomize_click(FoundX, FoundY)
-		}
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\rank_up.png
-	if (ErrorLevel = 0)
-	{
-		random_next_delay()
-		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\rank_ok.png
-		if (ErrorLevel = 0)
-		{
-			random_delay()
-			randomize_click(FoundX, FoundY)
+			random_delay_wait()
 		}
 	}
 	
 }
-
 
 random_delay(){
-	random, wait_time, 400, 1000
+	random, wait_time, 100, 1500
 	sleep,%wait_time%
 
 }
 
-random_delay_wait(){
-	random, wait_time, 3000, 4000
-	sleep,%wait_time%
-}
 
 random_delay_battle(){
 	random, wait_time, 1500, 3000
@@ -250,22 +246,26 @@ random_delay_battle(){
 
 }
 
-random_endbattle(){
-	random, wait_time, 9000, 11000
-	sleep,%wait_time%
 
-}
-
-random_next_delay(){
-	random, wait_time, 5000, 7000
+random_delay_wait(){
+	random, wait_time, 4000, 6000
 	sleep,%wait_time%
 }
 
 randomize_move(FoundX, FoundY)
 {
-	random,xr,1,15
-	random,yr,1,15
+	random,xr,1,20
+	random,yr,1,20
 	FoundX:=FoundX+xr
+	FoundY:=FoundY+yr
+	mousemove, left, %FoundX%, %FoundY%
+}
+
+randomize_move_vira(FoundX, FoundY)
+{
+	random,xr,45,60
+	random,yr,1,10
+	FoundX:=FoundX-xr
 	FoundY:=FoundY+yr
 	mousemove, left, %FoundX%, %FoundY%
 }
@@ -279,6 +279,14 @@ randomize_click(FoundX, FoundY)
 	mouseclick, left, %FoundX%, %FoundY%
 }
 
+randomize_click_vira(FoundX, FoundY)
+{
+	random,xr,45,60
+	random,yr,1,10
+	FoundX:=FoundX-xr
+	FoundY:=FoundY+yr
+	mousemove, left, %FoundX%, %FoundY%
+}
 
 randomize_click_summon(FoundX, FoundY)
 {

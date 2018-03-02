@@ -82,7 +82,6 @@ copy_number(){
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\join_room.png
 		if (ErrorLevel = 0)
 		{
-			random_delay()
 			randomize_click(FoundX, FoundY)
 			random_delay_wait()
 		}
@@ -91,33 +90,6 @@ copy_number(){
 }
 
 
-select_map_vira(){
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\vira.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\hard_raids.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\chevalier.png
-	if (ErrorLevel = 0)
-	{
-		random_delay()
-		randomize_click(FoundX, FoundY)
-		
-		
-		sleep, 10000
-	}
-	
-}
 
 select_summon(){
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_fav.png
@@ -128,15 +100,14 @@ select_summon(){
 		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_summon.png
 		if (ErrorLevel = 0)
 		{
-			random_delay()
 			randomize_click_summon(FoundX, FoundY)
-			random_delay_battle()
+			random_delay()
 		}
 	}
 	
 	
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_ok.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
@@ -158,7 +129,7 @@ battle() {
 		randomize_click(FoundX, FoundY)
 		
 		random_delay_battle()
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			random_delay()
@@ -172,7 +143,7 @@ battle() {
 		randomize_click(FoundX, FoundY)
 		
 		random_delay_battle()
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			random_delay()
@@ -231,10 +202,11 @@ pick_up_roots() {
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\select_root.png
 	if (ErrorLevel = 0)
 	{
+		random_delay_wait()
 		randomize_click(FoundX, FoundY)
 		random_delay_wait()
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			sleep,5000
@@ -258,7 +230,7 @@ error_condition() {
 			random_delay_wait()
 		}
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
@@ -278,7 +250,7 @@ error_condition() {
 			random_delay_wait()
 		}
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
@@ -298,7 +270,7 @@ error_condition() {
 			random_delay_wait()
 		}
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)
