@@ -61,7 +61,7 @@ random_delay(){
 
 
 random_delay_boss(){
-	random, wait_time, 60000, 70000
+	random, wait_time, 46000, 49000
 	sleep,%wait_time%
 
 }

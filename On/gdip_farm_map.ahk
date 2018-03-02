@@ -13,7 +13,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Loop
 {
 	
-	If(IsImagePlus(ClickX, ClickY, "ch_23.png",60,0) or IsImagePlus(ClickX, ClickY, "ch_23_2.png",60,0))
+	If(IsImagePlus(ClickX, ClickY, "ch_23.png",60,0) or IsImagePlus(ClickX, ClickY, "ch_23_2.png",60,0) or IsImagePlus(ClickX, ClickY, "ch_23_3.png",60,0))
 	{
 		random_delay_wait()
 		randomize_click(ClickX, ClickY)
@@ -25,6 +25,17 @@ Loop
 		random_delay()
 		randomize_click(ClickX, ClickY)
 		random_delay()
+	}
+	
+	If(IsImagePlus(ClickX, ClickY, "raid_find.png",60,0))
+	{
+		MsgBox, 레이드 발견! %FoundX% , %FoundY%
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
 	}
 	
 	If(IsImagePlus(ClickX, ClickY, "enter.png",60,0))

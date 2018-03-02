@@ -38,11 +38,6 @@ Loop
 	}
 	
 	
-	If(IsImagePlus(ClickX, ClickY, "start_fight_2.png",60,0))
-	{
-		start_click(ClickX, ClickY)
-		random_delay()
-	}
 	
 	If(IsImagePlus(ClickX, ClickY, "victory.png",60,0))
 	{

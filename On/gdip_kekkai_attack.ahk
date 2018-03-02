@@ -23,7 +23,6 @@ Loop
 		random_delay()
 	}
 	
-	
 	If(IsImagePlus(ClickX, ClickY, "ticket_start_4.png",60,0))
 	{
 		battle_click(ClickX, ClickY)
@@ -41,6 +40,7 @@ Loop
 		battle_click(ClickX, ClickY)
 		random_delay()
 	}
+	
 	
 	If(IsImagePlus(ClickX, ClickY, "ticket_start_7.png",60,0))
 	{

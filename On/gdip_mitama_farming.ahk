@@ -27,9 +27,11 @@ Loop
 		random_delay()
 	}
 	
-	If(IsImagePlus(ClickX, ClickY, "check_10.png",60,0) or IsImagePlus(ClickX, ClickY, "check_10_2.png",60,0))
+	
+	If(IsImagePlus(ClickX, ClickY, "check_10.png",60,0) or IsImagePlus(ClickX, ClickY, "check_10_2.png",60,0) or IsImagePlus(ClickX, ClickY, "check_10_3.png",60,0) or IsImagePlus(ClickX, ClickY, "check_10_4.png",60,0))
 	{
-		If(IsImagePlus(ClickX, ClickY, "enter_mitama.png",60,0))
+		
+		If(IsImagePlus(ClickX, ClickY, "enter_mitama.png",60,0) or IsImagePlus(ClickX, ClickY, "enter_mitama_3.png",60,0))
 		{
 			randomize_click(ClickX, ClickY)
 			random_delay()
@@ -43,11 +45,11 @@ Loop
 	}
 	
 	
-	If(IsImagePlus(ClickX, ClickY, "start_fight_2.png",60,0))
-	{
-		start_click(ClickX, ClickY)
-		random_delay()
-	}
+;If(IsImagePlus(ClickX, ClickY, "start_fight_2.png",60,0))
+;	{
+;		start_click(ClickX, ClickY)
+;		random_delay()
+;	}
 	
 	If(IsImagePlus(ClickX, ClickY, "victory.png",60,0))
 	{

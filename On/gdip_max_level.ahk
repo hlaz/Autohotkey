@@ -69,6 +69,18 @@ Loop
 		
 	}
 	
+	If(IsImagePlus(ClickX, ClickY, "lvl30_2.png",60,0))
+	{
+		Send, {F4}
+		Send, {F5}
+		Send, {F6}
+		Send, {F7}
+		Send, {F8}
+		Send, {F9}
+		MsgBox, 만렙 발견! %FoundX% , %FoundY%
+		
+	}
+	
 }
 return
 
