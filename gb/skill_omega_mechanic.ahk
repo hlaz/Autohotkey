@@ -21,7 +21,7 @@ Loop
 	{
 		CoordMode, pixel, screen
 		coordmode, mouse, screen
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_2.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_1_mc.png
 		if (ErrorLevel = 0)
 		{
 			random_delay_wait()
@@ -31,6 +31,51 @@ Loop
 			break
 		}
 	}
+	
+	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_2_mc.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
+	
+	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\summon_baha.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
+	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\back_omega.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
+	
 	
 	
 	
@@ -48,11 +93,13 @@ Loop
 		}
 	}
 	
+	
+	
 	Loop
 	{
 		CoordMode, pixel, screen
 		coordmode, mouse, screen
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_1.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_9_mc.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click_skill(FoundX, FoundY)
@@ -62,6 +109,49 @@ Loop
 		}
 	}
 	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_11_mc.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
+	
+	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_11.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
+	
+	
+	Loop
+	{
+		CoordMode, pixel, screen
+		coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_4_mc.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_skill(FoundX, FoundY)
+			Random,t,5,9
+			sleep, %t%00
+			break
+		}
+	}
 	
 	
 	Loop
@@ -82,21 +172,7 @@ Loop
 			randomize_click(FoundX, FoundY)
 			Random,t,5,9
 			sleep, %t%00
-		}
-		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
-		if (ErrorLevel = 0)
-		{
-			randomize_click(FoundX, FoundY)
-			
-			ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_ok.png
-			if (ErrorLevel = 0)
-			{
-				randomize_click(FoundX, FoundY)
-				random_delay()
-				break
-			}
-			
+			break
 		}
 		
 		
@@ -109,7 +185,7 @@ return
 
 
 
-F1::ExitApp
+F5::ExitApp
 
 
 
@@ -122,7 +198,7 @@ random_delay(){
 }
 
 random_delay_wait(){
-	random, wait_time, 4000, 5000
+	random, wait_time, 5000, 6000
 	sleep,%wait_time%
 }
 
@@ -154,7 +230,7 @@ randomize_move(FoundX, FoundY)
 
 randomize_click_skill(FoundX, FoundY)
 {
-	random,xr,1,4
+	random,xr,1,3
 	random,yr,1,4
 	FoundX:=FoundX+xr
 	FoundY:=FoundY+yr

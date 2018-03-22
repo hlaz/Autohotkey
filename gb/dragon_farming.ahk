@@ -37,9 +37,10 @@ ButtonStart:
 	
 	Loop
 	{
-		start_side_story()
+		start_halo()
 		select_summon()
 		skip_event()
+		battle()
 		event_handler()
 			
 		
@@ -61,22 +62,29 @@ ExitApp
 return
 
 
-start_side_story(){
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\side_next_story.png
+start_halo(){
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\dragon_img.png
 	if (ErrorLevel = 0)
 	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_20.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+				random_delay()
+		}
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\play_ending.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
-	
-	
+	;ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\dragon_select.png
+	;if (ErrorLevel = 0)
+	;{
+	;	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\play_quest.png
+	;	if (ErrorLevel = 0)
+	;	{
+	;		randomize_click(FoundX, FoundY)
+	;		random_delay()
+	;	}
+	;}
 }
 
 
@@ -110,14 +118,7 @@ select_summon(){
 
 skip_event() {
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip_story.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip_story_2.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skip_event.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
@@ -141,11 +142,57 @@ skip_event() {
 }
 
 
+battle() {
+	
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\attack.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\auto_7.png
+	if (ErrorLevel = 0)
+	{
+		
+		randomize_click(FoundX, FoundY)
+		random_delay_wait()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\next.png
+	if (ErrorLevel = 0)
+	{
+		
+		randomize_click(FoundX, FoundY)
+		random_delay_wait()
+	}
+	
+	
+	
+}
 
 event_handler() {
 	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+			
+			num_clear := num_clear + 1
+			Gui,Submit,nohide
+			GuiControl, , B, %num_clear% runs
+		}
+		
+	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\back_to_story.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\back_quest.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
@@ -163,19 +210,6 @@ event_handler() {
 		}
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_close.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok_side.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
 	
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\lb_up.png
 	if (ErrorLevel = 0)
@@ -215,7 +249,6 @@ event_handler() {
 	if (ErrorLevel = 0)
 	{
 		
-		Send, {F4}
 		Send, {F8}
 		random_delay_battle()
 		
@@ -265,7 +298,7 @@ randomize_move(FoundX, FoundY)
 randomize_click(FoundX, FoundY)
 {
 	random,xr,1,15
-	random,yr,1,20
+	random,yr,1,5
 	FoundX:=FoundX+xr
 	FoundY:=FoundY+yr
 	mouseclick, left, %FoundX%, %FoundY%

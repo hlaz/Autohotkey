@@ -38,7 +38,7 @@ ButtonStart:
 	{
 		select_map()
 		select_summon()
-		battle_yodal()
+		event_handler()
 		
 			
 		
@@ -119,21 +119,8 @@ select_map() {
 		random_delay_wait()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\showdown.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\hard_raid.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		random_delay()
-	}
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_15_2.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
@@ -144,6 +131,35 @@ select_map() {
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\chevalier.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+		
+		
+		send, F8
+	}
+	
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_play.png
+	if (ErrorLevel = 0)
+	{
+		random_delay()
+		randomize_click(FoundX, FoundY)
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_msg.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\quest_ok.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click_summon(FoundX, FoundY)
+			random_delay_wait()
+		}
 	}
 	
 }
@@ -179,7 +195,7 @@ select_summon(){
 	}
 }
 
-battle_yodal() {
+event_handler() {
 	
 	
 	
@@ -194,6 +210,52 @@ battle_yodal() {
 			randomize_click(FoundX, FoundY)
 			random_delay_wait()
 		}
+	}
+	
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\lb_up.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\lb_up_2.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\trophy.png
+	if (ErrorLevel = 0)
+	{
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\trophy_close.png
+		if (ErrorLevel = 0)
+		{
+			randomize_click(FoundX, FoundY)
+			random_delay()
+		}
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\extend_up.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\verify_detect.png
+	if (ErrorLevel = 0)
+	{
+		
+		Send, {F8}
+		random_delay_battle()
+		
+		
+		
 	}
 	
 }

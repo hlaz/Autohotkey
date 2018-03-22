@@ -10,27 +10,29 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 	Loop
 {
-	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\dragon_auto.png
-	if (ErrorLevel = 0)
-	{
-		randomize_click(FoundX, FoundY)
-		sleep, 1000
-
-	}
-	
+	CoordMode, pixel, screen
+	coordmode, mouse, screen
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\max_point.png
+		if (ErrorLevel = 0)
+		{
+			Send, {F7}
+			Send, {F8}
+			sleep, 4000
+		}
 		
 		
 }
 return
-f4::
+f5::
 pause
 
-f7::ExitApp
+f1::exitapp
 
 randomize_click(FoundX, FoundY)
 {
-	random,xr,1,5
+	random,xr,1,10
+	random,yr,1,5
 	FoundX:=FoundX+xr
+	FoundY:=FoundY+yr
 	mouseclick, left, %FoundX%, %FoundY%
 }
