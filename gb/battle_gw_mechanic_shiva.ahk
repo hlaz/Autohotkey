@@ -121,7 +121,7 @@ Loop
 	{
 		CoordMode, pixel, screen
 		coordmode, mouse, screen
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_10_mc.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_kuro_3.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click_skill(FoundX, FoundY)
@@ -135,7 +135,7 @@ Loop
 	{
 		CoordMode, pixel, screen
 		coordmode, mouse, screen
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_9_mc.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_kuro_2.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click_skill(FoundX, FoundY)
@@ -149,7 +149,7 @@ Loop
 	{
 		CoordMode, pixel, screen
 		coordmode, mouse, screen
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_11_mc.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\skill_kuro_1.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click_skill(FoundX, FoundY)

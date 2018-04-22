@@ -133,11 +133,17 @@ select_map() {
 		random_delay()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_15.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
 		random_delay()
+	}
+	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\click_ok_3.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
 	}
 	
 }
@@ -223,7 +229,7 @@ battle_yodal() {
 		
 		sleep, 6000
 		
-		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\my_page.png
+		ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\home.png
 		if (ErrorLevel = 0)
 		{
 			randomize_click(FoundX, FoundY)

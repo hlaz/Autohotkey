@@ -75,6 +75,13 @@ start_halo(){
 		random_delay()
 	}
 	
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\retry_dungeon.png
+	if (ErrorLevel = 0)
+	{
+		randomize_click(FoundX, FoundY)
+		random_delay()
+	}
+	
 }
 
 
@@ -142,14 +149,14 @@ event_handler() {
 		
 	}
 	
-	
+	/*
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\event_home.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
 		random_delay()
 	}
-	
+	*/
 	
 	/*
 	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\exp_gained.png

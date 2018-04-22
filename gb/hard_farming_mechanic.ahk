@@ -133,7 +133,7 @@ select_map() {
 		random_delay()
 	}
 	
-	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_zero.png
+	ImageSearch, FoundX, FoundY, 0,0, A_ScreenWidth, A_ScreenHeight, *50 %A_ScriptDir%\img\ap_15.png
 	if (ErrorLevel = 0)
 	{
 		randomize_click(FoundX, FoundY)
